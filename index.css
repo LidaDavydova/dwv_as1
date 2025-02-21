@@ -1,0 +1,62 @@
+
+table {
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+@media (max-width: 600px) {
+    table {
+        width: 100%; /* Make the table full-width on small screens */
+    }
+}
+table, th, td {
+    border: 1px solid black;
+}
+thead {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgb(18, 122, 143) 100%); 
+    color: #ffffff;
+    opacity: 0.8; 
+}
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+tbody tr:nth-child(even) {
+    background-color: #e5f5ff;
+}
+tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+h1 {
+    text-align: center;
+}
+th.sortable {
+    cursor: pointer;
+    position: relative;
+    padding-right: 20px; /* Space for the icon */
+}
+
+/* Default state: no active sort */
+th.sortable::after {
+    content: '\25B3'; /* Triangle pointing up (neutral) */
+    font-size: 12px;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5; /* Faint when not sorted */
+}
+
+/* Active ascending sort */
+th.sortable.sorted-asc::after {
+    content: '\25B2'; /* Triangle pointing up */
+    opacity: 1; /* Fully visible */
+}
+
+/* Active descending sort */
+th.sortable.sorted-desc::after {
+    content: '\25BC'; /* Triangle pointing down */
+    opacity: 1; /* Fully visible */
+}
